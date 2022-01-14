@@ -1,3 +1,5 @@
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 cmake_minimum_required(VERSION 2.8.3)
 project(loop_fusion)
 
@@ -15,7 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
     roslib
     )
 
-find_package(OpenCV)
+find_package(OpenCV REQUIRED)
 
 
 find_package(Ceres REQUIRED)
@@ -25,7 +27,7 @@ find_package(Eigen3)
 
 include_directories(${catkin_INCLUDE_DIRS} ${CERES_INCLUDE_DIRS}  ${EIGEN3_INCLUDE_DIR})
 
-catkin_package()
+catkin_package(CATKIN_DEPENDS roscpp std_msgs nav_msgs camera_models cv_bridge roslib)
 
 add_executable(loop_fusion_node
     src/pose_graph_node.cpp

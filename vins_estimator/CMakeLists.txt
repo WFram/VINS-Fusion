@@ -1,3 +1,5 @@
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 cmake_minimum_required(VERSION 2.8.3)
 project(vins)
 
@@ -56,9 +58,9 @@ target_link_libraries(vins_lib ${catkin_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRAR
 add_executable(vins_node src/rosNodeTest.cpp)
 target_link_libraries(vins_node vins_lib) 
 
-add_executable(kitti_odom_test src/KITTIOdomTest.cpp)
-target_link_libraries(kitti_odom_test vins_lib) 
+#add_executable(kitti_odom_test src/KITTIOdomTest.cpp)
+#target_link_libraries(kitti_odom_test vins_lib) 
 
-add_executable(kitti_gps_test src/KITTIGPSTest.cpp)
-target_link_libraries(kitti_gps_test vins_lib) 
+#add_executable(kitti_gps_test src/KITTIGPSTest.cpp)
+#target_link_libraries(kitti_gps_test vins_lib) 
 
